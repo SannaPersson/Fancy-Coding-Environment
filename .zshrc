@@ -131,5 +131,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 #
-eval "$(github-copilot-cli alias -- "$0")"
+#eval "$(github-copilot-cli alias -- "$0")"
+
 
