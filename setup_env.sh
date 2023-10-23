@@ -7,19 +7,19 @@ chsh -s /bin/zsh
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Get the directory of the current script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 # Install TMUX
 brew install tmux
 
 # Install Neovim
 brew install neovim
 
-# Clone the repository
-git clone https://github.com/SannaPersson/Fancy-Coding-Environment.git ~/Fancy-Coding-Environment
-
 # Create symbolic links
-ln -s ~/Fancy-Coding-Environment/.zshrc ~/.zshrc
-ln -s ~/Fancy-Coding-Environment/.tmux.conf ~/.tmux.conf
-ln -s ~/Fancy-Coding-Environment/nvim ~/.config/nvim
+ln -s $DIR/.zshrc ~/.zshrc
+ln -s $DIR/.tmux.conf ~/.tmux.conf
+ln -s $DIR/nvim ~/.config/nvim
 
 # Clone the zsh-syntax-highlighting plugin
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
