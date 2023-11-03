@@ -45,6 +45,21 @@ clone_zsh_syntax_highlighting() {
     fi
 }
 
+# Install zsh-autosuggestions
+install_zsh_autosuggestions() {
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+}
+
+# Install powerlevel10k theme
+install_powerlevel10k() {
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+}
+
+# Install Tmux Plugin Manager
+install_tpm() {
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
 # Source the new zsh configuration
 source_zsh_config() {
     source ~/.zshrc
@@ -79,6 +94,9 @@ main() {
     install_neovim
     create_symbolic_links
     clone_zsh_syntax_highlighting
+    install_zsh_autosuggestions
+    install_powerlevel10k
+    install_tpm
     add_github_copilot
     source_zsh_config
     reload_tmux_config
