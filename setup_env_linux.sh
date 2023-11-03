@@ -1,28 +1,29 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Install zsh and make it your main shell
 install_zsh() {
-    brew install zsh
-    chsh -s /bin/zsh
+    sudo apt install -y zsh
+    chsh -s $(which zsh)
 }
 
 # Install oh-my-zsh
 install_oh_my_zsh() {
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-)"
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
+
 # Install node.js 
 install_node() {
-    brew install node
+    sudo apt install -y nodejs
 }
+
 # Install TMUX
 install_tmux() {
-    brew install tmux
+    sudo apt install -y tmux
 }
 
 # Install Neovim
 install_neovim() {
-    brew install neovim
+    sudo apt install -y neovim
 }
 
 # Create symbolic links
@@ -38,14 +39,11 @@ clone_zsh_syntax_highlighting() {
     local ZSH_SYNTAX_HIGHLIGHTING_PATH="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
     
     if [[ ! -d $ZSH_SYNTAX_HIGHLIGHTING_PATH ]]; then
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
- $ZSH_SYNTAX_HIGHLIGHTING_PATH
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_SYNTAX_HIGHLIGHTING_PATH
     else
         echo "zsh-syntax-highlighting directory already exists. Skipping clone."
     fi
 }
-
-
 
 # Source the new zsh configuration
 source_zsh_config() {
