@@ -23,7 +23,9 @@ install_tmux() {
 
 # Install Neovim
 install_neovim() {
-    sudo apt install -y neovim
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+    sudo mv nvim.appimage /usr/local/bin/nvim
 }
 
 # Create symbolic links
