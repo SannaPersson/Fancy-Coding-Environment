@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Install zsh and make it your main shell
 install_zsh() {
